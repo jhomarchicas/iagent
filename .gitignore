@@ -10,6 +10,18 @@ service-account*.json
 *.pem
 *.key
 
+# Archivos generados por Electron
+dist/
+build/
+out/
+release/
+
+# Perfiles y sesiones de Playwright / Chrome
+perfil-chrome/
+user-data/
+playwright-report/
+test-results/
+
 # Logs
 *.log
 npm-debug.log*

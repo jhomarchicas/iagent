@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <div>
+                    <strong>Agente IA</strong>
+                    <span>Multi-Model Desktop</span>
+                </div>
+            </div>
+
+            <div class="menu-item active">
+                ◈ &nbsp; Panel de control
+            </div>
+
+            <div class="sidebar-footer">
+                <span>Playwright + IA</span>
+                <small>Versión 2.0.0</small>
+            </div>
+        </aside>
+
+        <main class="content">
+            <header class="header">
+                <div>
+                    <span class="eyebrow">PANEL DE CONTROL</span>
+                    <h1>Agente inteligente</h1>
+                    <p>
+                        Analiza preguntas con distintos modelos de IA
+                        desde un solo lugar.
+                    </p>
+                </div>
+
+                <div id="status" class="status">
+                    ● Detenido
+                </div>
+            </header>
+
+            <section class="stats">
+                <article class="stat">
+                    <span>MODELO DE IA</span>
+                    <strong id="model-name">Cargando...</strong>
+                    <small id="model-provider">Selecciona un modelo</small>
+                </article>
+
+                <article class="stat">
+                    <span>NAVEGADOR</span>
+                    <strong>Google Chrome</strong>
+                    <small>Playwright</small>
+                </article>
+
+                <article class="stat">
+                    <span>AVANCE</span>
+                    <strong>Manual</strong>
+                    <small>Sin envío automático</small>
+                </article>
+            </section>
+
+            <section class="panel model-panel">
+                <div class="panel-header">
+                    <div>
+                        <h2>Modelo de inteligencia artificial</h2>
+                        <p>
+                            Elige el modelo que analizará las preguntas.
+                        </p>
+                    </div>
+                    <span class="model-tag">MULTIMODELO</span>
+                </div>
+
+                <div class="model-controls">
+                    <div class="field">
+                        <label for="provider">Proveedor</label>
+                        <select id="provider">
+                            <option value="">Cargando...</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="model">Modelo</label>
+                        <select id="model">
+                            <option value="">Cargando...</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="model-info">
+                    <span class="model-dot"></span>
+                    <div>
+                        <strong id="selected-model">
+                            Esperando configuración...
+                        </strong>
+                        <small id="model-description">
+                            Selecciona un modelo para comenzar.
+                        </small>
+                    </div>
+                </div>
+            </section>
+
+            <section class="control panel">
+                <div>
+                    <h2>Control del agente</h2>
+                    <p>
+                        Inicia o detén el análisis de preguntas.
+                    </p>
+                </div>
+
+                <div class="buttons">
+                    <button id="start" class="btn-start">
+                        ▶ Iniciar agente
+                    </button>
+                    <button id="stop" class="btn-stop" disabled>
+                        ■ Detener
+                    </button>
+                </div>
+            </section>
+
+            <div class="columns">
+                <section class="panel question-panel">
+                    <div class="panel-header">
+                        <h2>Pregunta actual</h2>
+                        <span id="qnumber">—</span>
+                    </div>
+
+                    <p id="question" class="question">
+                        Esperando una pregunta...
+                    </p>
+
+                    <div id="options" class="options"></div>
+
+                    <div id="answer" class="answer">
+                        Sin respuesta todavía
+                    </div>
+
+                    <div id="ai-explanation"
+                         class="ai-explanation"
+                         hidden>
+                    </div>
+                </section>
+
+                <section class="panel">
+                    <div class="panel-header">
+                        <h2>Actividad del agente</h2>
+                        <button id="clear" class="btn-clear">
+                            Limpiar
+                        </button>
+                    </div>
+
+                    <div id="logs" class="logs">
+                        <div class="entry">
+                            Aplicación preparada.
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                Las respuestas son sugerencias de IA y pueden
+                contener errores. Revisa y selecciona la respuesta
+                manualmente. El avance y envío del cuestionario
+                también son manuales.
+            </footer>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

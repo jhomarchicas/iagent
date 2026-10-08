@@ -2,9 +2,11 @@
   "name": "agente-ia",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +16,26 @@
     "@google/genai": "^2.28.0",
     "dotenv": "^18.0.6",
     "playwright": "^1.64.0"
+  },
+  "devDependencies": {
+    "electron": "^44.7.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.agenteia.desktop",
+    "productName": "Agente IA",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
