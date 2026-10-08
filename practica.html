@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulacro de práctica</title>
+</head>
+<body>
+    <main>
+        <h1>Simulacro de práctica</h1>
+        <h2 id="pregunta"></h2>
+        <form id="opciones"></form>
+        <button id="siguiente" type="button">
+            Siguiente
+        </button>
+    </main>
+
+    <script>
+        const preguntas = [
+            {
+                texto: "¿Qué significa HTML?",
+                opciones: [
+                    "HyperText Markup Language",
+                    "HighText Machine Language",
+                    "Hyper Transfer Main Language",
+                    "Home Tool Markup Language"
+                ]
+            },
+            {
+                texto: "JavaScript puede ejecutarse en el navegador.",
+                opciones: ["Verdadero", "Falso"]
+            },
+            {
+                texto: "¿Cuál es un método HTTP?",
+                opciones: ["GET", "CREATE", "CONNECTDB", "FETCHALL"]
+            }
+        ];
+
+        let actual = 0;
+
+        function mostrar() {
+            const pregunta = preguntas[actual];
+            document.querySelector('#pregunta').textContent =
+                pregunta.texto;
+
+            document.querySelector('#opciones').innerHTML =
+                pregunta.opciones.map((opcion, i) => `
+                    <label>
+                        <input type="radio"
+                               name="respuesta"
+                               value="${i}">
+                        ${opcion}
+                    </label><p></p>
+                `).join('');
+        }
+
+        document.querySelector('#siguiente')
+            .addEventListener('click', () => {
+                actual = (actual + 1) % preguntas.length;
+                mostrar();
+            });
+
+        mostrar();
+    </script>
+</body>
+</html>
